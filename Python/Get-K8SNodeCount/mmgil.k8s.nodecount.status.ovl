@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="mmgil.k8s.nodecount.status" desiredValue="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LookupState.xsd">
+    <Lookups>
+      <Range state="None" from="0" to="0">Alguma coisa estranha está ocorrendo!</Range>
+      <Range state="Ok" from="1" to="2">Ok</Range>
+      <Range state="Warning" from="3" to="4">Low</Range>
+      <Range state="Error" from=5" to="1000">Critical</Range>
+    </Lookups>
+  </ValueLookup>
