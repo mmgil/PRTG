@@ -16,6 +16,10 @@ Defina o Nome que você desejar, escolha o script no Combo Box logo abaixo e em 
 -NomeDoComputador %host -NomeDeUsuario "%linuxuser" -Senha "%linuxpassword" -Daemon "sshd", "apache2", "mysql"
 ```
 
+# REQUISITOS
+
+- Modulo Posh-SSH (Install-Module -Name Posh-SSH -Force)
+
 # Histórico
 
 **Author:** Moises de Matos Gil (moises@mmgil.com.br)
