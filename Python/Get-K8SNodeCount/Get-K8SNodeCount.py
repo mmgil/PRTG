@@ -49,9 +49,8 @@ if __name__ == "__main__":
     except Exception as e:
         # Em caso de erro, retornar uma mensagem de erro para o PRTG
         result = {
-            "prtg": {
-                "error": 1,
-                "text": str(e)
-            }
+            "version": 2,
+            "status": "error",
+            "message": str(e)
         }
         print(json.dumps(result))
