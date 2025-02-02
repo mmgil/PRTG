@@ -27,9 +27,9 @@ param(
 # PARAMETROS
     [Parameter( Mandatory = $True, ValueFromPipeline = $True, position = 0, HelpMessage = "Digite o nome do Computador" )]
     [string]$NomeDoComputador,
-    [Parameter( Mandatory = $True, ValueFromPipeline = $True, position = 0, HelpMessage = "Digite o Nome de Usuario" )]
+    [Parameter( Mandatory = $True, ValueFromPipeline = $True, position = 1, HelpMessage = "Digite o Nome de Usuario" )]
     [string]$NomeDeUsuario,
-    [Parameter( Mandatory = $True, ValueFromPipeline = $True, position = 0, HelpMessage = "Digite a Senha" )]
+    [Parameter( Mandatory = $True, ValueFromPipeline = $True, position = 2, HelpMessage = "Digite a Senha" )]
     [string]$Senha
 )
 
