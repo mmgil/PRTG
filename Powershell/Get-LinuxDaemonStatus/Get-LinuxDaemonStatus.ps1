@@ -18,6 +18,7 @@
     Date:   Fevereiro 01, 2025
 
     Fevereiro 01, 2025 - Criado a Primeira Versão desse SCRIPT
+    Fevereiro 13, 2025 - Adicionando suporte a KeyString com private key de OpenSSH
 #>
 
 param(
@@ -29,7 +30,11 @@ param(
     [Parameter( Mandatory = $True, ValueFromPipeline = $True, position = 2, HelpMessage = "Digite o Nome de Usuario" )]
     [string]$NomeDeUsuario,
     [Parameter( Mandatory = $True, ValueFromPipeline = $True, position = 3, HelpMessage = "Digite a Senha" )]
-    [string]$Senha
+    [string]$Senha,
+    [Parameter( Mandatory = $false, ValueFromPipeline = $false, position = 4, HelpMessage = "Informe a chave privada" )]
+    [string]$KeyString,
+    [Parameter( Mandatory = $false, ValueFromPipeline = $false, position = 5, HelpMessage = "Informe o caminho do arquivo com a chave privada" )]
+    [string]$KeyFile
 )
 
 # VALIDANDO REQUISITOS
@@ -52,7 +57,13 @@ function New-GenerateCredentials() {
 $Credentials = (New-GenerateCredentials);
 
 # ABRINDO UMA SESSÃO SSH
-$SSHSession = New-SSHSession -ComputerName $NomeDoComputador -Credential $Credentials -AcceptKey
+$SSHSession = if( -not([string]::IsNullOrEmpty($KeyFile)) ) {
+    New-SSHSession -ComputerName $NomeDoComputador -Credential $Credentials -AcceptKey -KeyFile $KeyFile
+} elseif ( -not([string]::IsNullOrEmpty($KeyString)) ) {
+    New-SSHSession -ComputerName $NomeDoComputador -Credential $Credentials -AcceptKey -KeyString $KeyString
+} else {
+    New-SSHSession -ComputerName $NomeDoComputador -Credential $Credentials -AcceptKey
+}
 
 # OBTER INFORMAÇÕES ATRAVES DE SSH REMOTAMENTE
 ## DAEMON STATUS
