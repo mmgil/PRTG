@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueLookup id="mmgil.k8s.pvc.used.space" desiredValue="0" undefinedState="olsWarning"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PaeValueLookup.xsd">
+  <Lookups>
+    <Range state="OK" from="1" to="10">Crítico!</Range>
+    <Range state="Warning" from="11" to="20">Atenção</Range>
+    <Range state="Error" from="21" to="100">Crítico!</Range>
+  </Lookups>
+</ValueLookup>
